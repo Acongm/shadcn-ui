@@ -17,15 +17,17 @@ jobs:
       - uses: actions/setup-node@v7
         with:
           node-version: 22
-          package-manager-cache: false
+          cache: npm
       - name: Validate local registry contract
         run: node scripts/validate-registry.mjs
       - name: Validate pinned upstream references
         run: node scripts/validate-references.mjs
       - name: Test UI source contracts
         run: node scripts/test-ui-contract.mjs
-      - name: Install runtime test dependencies
-        run: npm install --ignore-scripts --no-audit --no-fund
+      - name: Install locked runtime test dependencies
+        run: npm ci --ignore-scripts --no-audit --no-fund
+      - name: Typecheck public component contracts
+        run: npm run types:check
       - name: Test UI runtime behavior and accessibility
         run: npm test
       - name: Validate with official shadcn CLI

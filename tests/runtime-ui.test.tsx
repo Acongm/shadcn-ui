@@ -9,7 +9,7 @@ import { Label } from '../registry/acongm/ui/label';
 import { ThemeToggle } from '../registry/acongm/ui/theme-toggle';
 
 describe('Acongm UI runtime contracts', () => {
-  it('keeps Button native, keyboard reachable and disabled-safe', async () => {
+  it('keeps Button keyboard reachable and disabled-safe through Base UI', async () => {
     const user = userEvent.setup();
     const onClick = vi.fn();
 
@@ -20,11 +20,11 @@ describe('Acongm UI runtime contracts', () => {
       </div>,
     );
 
-    const button = screen.getByRole('button', { name: '保存' });
+    const button = screen.getByRole('button', { name: '保存' }) as HTMLButtonElement;
     const disabled = screen.getByRole('button', { name: '不可用' });
 
     expect(button.tagName).toBe('BUTTON');
-    expect(button.getAttribute('type')).toBe('button');
+    expect(button.type).toBe('button');
 
     await user.tab();
     expect(document.activeElement).toBe(button);
@@ -50,10 +50,10 @@ describe('Acongm UI runtime contracts', () => {
     await user.type(input, 'hello@acongm.com');
 
     expect(input.value).toBe('hello@acongm.com');
-    expect(input.getAttribute('type')).toBe('text');
+    expect(input.type).toBe('text');
   });
 
-  it('exposes Alert as an assertive status surface with structured content', () => {
+  it('keeps Alert assertive without forcing application heading hierarchy', () => {
     render(
       <Alert variant="destructive">
         <AlertTitle>登录失败</AlertTitle>
@@ -64,8 +64,9 @@ describe('Acongm UI runtime contracts', () => {
     const alert = screen.getByRole('alert');
     expect(alert.textContent).toContain('登录失败');
     expect(alert.textContent).toContain('请检查账号后重试。');
-    expect(alert.querySelector('[data-slot="alert-title"]')?.tagName).toBe('H5');
-    expect(alert.querySelector('[data-slot="alert-description"]')?.tagName).toBe('P');
+    expect(alert.querySelector('[data-slot="alert-title"]')?.tagName).toBe('DIV');
+    expect(alert.querySelector('[data-slot="alert-description"]')?.tagName).toBe('DIV');
+    expect(screen.queryByRole('heading')).toBeNull();
   });
 
   it('cycles system → light → dark and persists the shared theme contract', async () => {

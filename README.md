@@ -23,23 +23,32 @@ Registry source 位于：
 
 消费项目应通过 Registry 获取基础组件，并在项目内拥有最终源码；不要从 `portal/chat/auth` 复制 primitives。
 
+### Stable baseline
+
+`stable.json` 声明当前经过完整质量门禁的稳定基线。消费者默认应固定到其中的完整 commit SHA，而不是直接追 `main`。
+
+当前稳定版本：`0.1.0`。
+
+```text
+ref: da38680260103510fd6c57c741a5046024558282
+```
+
+使用完整 SHA 可以保证 Registry 安装结果不可变；`main` 只用于查看候选升级，不直接作为生产消费者的默认来源。
+
 ### Usage
 
 ```bash
-# 浏览 Registry
-pnpm dlx shadcn@latest list Acongm/shadcn-ui
+# 浏览指定稳定 Registry
+pnpm dlx shadcn@latest list Acongm/shadcn-ui#da38680260103510fd6c57c741a5046024558282
 
 # 安装前检查完整 core-ui payload
-pnpm dlx shadcn@latest view Acongm/shadcn-ui/core-ui
+pnpm dlx shadcn@latest view Acongm/shadcn-ui/core-ui#da38680260103510fd6c57c741a5046024558282
 
 # 在目标应用目录安装 core-ui
-pnpm dlx shadcn@latest add Acongm/shadcn-ui/core-ui
-
-# 只安装一个组件
-pnpm dlx shadcn@latest add Acongm/shadcn-ui/button
+pnpm dlx shadcn@latest add Acongm/shadcn-ui/core-ui#da38680260103510fd6c57c741a5046024558282
 ```
 
-GitHub Registry 使用 `owner/repo/item` 地址，不需要额外 registry server。稳定发布后可在地址末尾加 `#tag` 或完整 commit SHA 进行版本固定。
+GitHub Registry 使用 `owner/repo/item#ref` 地址，不需要额外 registry server。未来如果具备 tag/release 自动化，可把稳定 SHA 再映射为语义版本 tag；消费者仍以不可变 ref 为最终基线。
 
 ## Validation
 
@@ -68,3 +77,4 @@ npm run test:a11y
 3. Low dependency：基础 primitives 尽量零依赖；只有明确交互需求才引入第三方依赖。
 4. Composition over wrappers：不机械包装第三方组件，只抽稳定的跨项目 UI 语义。
 5. Behavior over snapshots：优先测试用户可观察的行为、语义和可访问性，不使用脆弱的 DOM snapshot 作为主门禁。
+6. Stable by immutable ref：业务项目默认消费已审阅的完整 commit SHA；升级必须显式 review。

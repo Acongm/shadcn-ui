@@ -7,243 +7,26 @@
       "name": "acongm-theme",
       "type": "registry:theme",
       "title": "Acongm Theme",
-      "description": "Shared semantic light/dark theme for Acongm applications.",
+      "description": "Shared semantic light/dark design tokens for Acongm applications.",
       "cssVars": {
-        "light": {
-          "background": "#f7f8fa",
-          "foreground": "#1a1d27",
-          "card": "#ffffff",
-          "card-foreground": "#1a1d27",
-          "popover": "#ffffff",
-          "popover-foreground": "#1a1d27",
-          "primary": "#2f6b4f",
-          "primary-foreground": "#ffffff",
-          "secondary": "#eef1f5",
-          "secondary-foreground": "#25283a",
-          "muted": "#eef1f5",
-          "muted-foreground": "#6b7280",
-          "accent": "#e6f3ec",
-          "accent-foreground": "#24543f",
-          "destructive": "#c62828",
-          "destructive-foreground": "#ffffff",
-          "border": "#e4e7ef",
-          "input": "#d4d8e3",
-          "ring": "#2f6b4f",
-          "radius": "0.75rem"
-        },
-        "dark": {
-          "background": "#12141c",
-          "foreground": "#e8eaef",
-          "card": "#1a1d27",
-          "card-foreground": "#e8eaef",
-          "popover": "#1a1d27",
-          "popover-foreground": "#e8eaef",
-          "primary": "#3eaf7c",
-          "primary-foreground": "#0b1f16",
-          "secondary": "#222633",
-          "secondary-foreground": "#e8eaef",
-          "muted": "#222633",
-          "muted-foreground": "#9aa3b5",
-          "accent": "#20392d",
-          "accent-foreground": "#bcebd4",
-          "destructive": "#ef6b6b",
-          "destructive-foreground": "#2a0b0b",
-          "border": "#2c3140",
-          "input": "#3a4052",
-          "ring": "#3eaf7c"
-        }
+        "light": {"background":"#f7f8fa","foreground":"#1a1d27","card":"#ffffff","card-foreground":"#1a1d27","popover":"#ffffff","popover-foreground":"#1a1d27","primary":"#2f6b4f","primary-foreground":"#ffffff","secondary":"#eef1f5","secondary-foreground":"#25283a","muted":"#eef1f5","muted-foreground":"#6b7280","accent":"#e6f3ec","accent-foreground":"#24543f","destructive":"#c62828","destructive-foreground":"#ffffff","border":"#e4e7ef","input":"#d4d8e3","ring":"#2f6b4f","radius":"0.75rem"},
+        "dark": {"background":"#12141c","foreground":"#e8eaef","card":"#1a1d27","card-foreground":"#e8eaef","popover":"#1a1d27","popover-foreground":"#e8eaef","primary":"#3eaf7c","primary-foreground":"#0b1f16","secondary":"#222633","secondary-foreground":"#e8eaef","muted":"#222633","muted-foreground":"#9aa3b5","accent":"#20392d","accent-foreground":"#bcebd4","destructive":"#ef6b6b","destructive-foreground":"#2a0b0b","border":"#2c3140","input":"#3a4052","ring":"#3eaf7c"}
       }
     },
-    {
-      "name": "ui-cn",
-      "type": "registry:lib",
-      "title": "UI className utility",
-      "description": "Dependency-free className composition for lightweight Acongm primitives.",
-      "files": [
-        {
-          "path": "registry/acongm/lib/ui-cn.ts",
-          "type": "registry:lib",
-          "target": "@lib/ui-cn.ts"
-        }
-      ]
-    },
-    {
-      "name": "theme-runtime",
-      "type": "registry:lib",
-      "title": "Acongm theme runtime",
-      "description": "Cross-subdomain light/dark/system persistence via localStorage and .acongm.com cookie.",
-      "files": [
-        {
-          "path": "registry/acongm/lib/theme.ts",
-          "type": "registry:lib",
-          "target": "@lib/theme.ts"
-        }
-      ]
-    },
-    {
-      "name": "button",
-      "type": "registry:ui",
-      "title": "Button",
-      "description": "Lightweight semantic button primitive and buttonVariants helper.",
-      "registryDependencies": ["Acongm/shadcn-ui/ui-cn"],
-      "files": [
-        {
-          "path": "registry/acongm/ui/button.tsx",
-          "type": "registry:ui",
-          "target": "@ui/button.tsx"
-        }
-      ]
-    },
-    {
-      "name": "input",
-      "type": "registry:ui",
-      "title": "Input",
-      "description": "Lightweight semantic input primitive.",
-      "registryDependencies": ["Acongm/shadcn-ui/ui-cn"],
-      "files": [
-        {
-          "path": "registry/acongm/ui/input.tsx",
-          "type": "registry:ui",
-          "target": "@ui/input.tsx"
-        }
-      ]
-    },
-    {
-      "name": "textarea",
-      "type": "registry:ui",
-      "title": "Textarea",
-      "description": "Lightweight semantic textarea primitive.",
-      "registryDependencies": ["Acongm/shadcn-ui/ui-cn"],
-      "files": [
-        {
-          "path": "registry/acongm/ui/textarea.tsx",
-          "type": "registry:ui",
-          "target": "@ui/textarea.tsx"
-        }
-      ]
-    },
-    {
-      "name": "label",
-      "type": "registry:ui",
-      "title": "Label",
-      "description": "Dependency-free form label primitive.",
-      "registryDependencies": ["Acongm/shadcn-ui/ui-cn"],
-      "files": [
-        {
-          "path": "registry/acongm/ui/label.tsx",
-          "type": "registry:ui",
-          "target": "@ui/label.tsx"
-        }
-      ]
-    },
-    {
-      "name": "card",
-      "type": "registry:ui",
-      "title": "Card",
-      "description": "Semantic card surface primitives.",
-      "registryDependencies": ["Acongm/shadcn-ui/ui-cn"],
-      "files": [
-        {
-          "path": "registry/acongm/ui/card.tsx",
-          "type": "registry:ui",
-          "target": "@ui/card.tsx"
-        }
-      ]
-    },
-    {
-      "name": "badge",
-      "type": "registry:ui",
-      "title": "Badge",
-      "description": "Semantic status badge primitive.",
-      "registryDependencies": ["Acongm/shadcn-ui/ui-cn"],
-      "files": [
-        {
-          "path": "registry/acongm/ui/badge.tsx",
-          "type": "registry:ui",
-          "target": "@ui/badge.tsx"
-        }
-      ]
-    },
-    {
-      "name": "alert",
-      "type": "registry:ui",
-      "title": "Alert",
-      "description": "Semantic default/success/destructive status surface.",
-      "registryDependencies": ["Acongm/shadcn-ui/ui-cn"],
-      "files": [
-        {
-          "path": "registry/acongm/ui/alert.tsx",
-          "type": "registry:ui",
-          "target": "@ui/alert.tsx"
-        }
-      ]
-    },
-    {
-      "name": "separator",
-      "type": "registry:ui",
-      "title": "Separator",
-      "description": "Dependency-free visual separator.",
-      "registryDependencies": ["Acongm/shadcn-ui/ui-cn"],
-      "files": [
-        {
-          "path": "registry/acongm/ui/separator.tsx",
-          "type": "registry:ui",
-          "target": "@ui/separator.tsx"
-        }
-      ]
-    },
-    {
-      "name": "skeleton",
-      "type": "registry:ui",
-      "title": "Skeleton",
-      "description": "Lightweight loading skeleton.",
-      "registryDependencies": ["Acongm/shadcn-ui/ui-cn"],
-      "files": [
-        {
-          "path": "registry/acongm/ui/skeleton.tsx",
-          "type": "registry:ui",
-          "target": "@ui/skeleton.tsx"
-        }
-      ]
-    },
-    {
-      "name": "theme-toggle",
-      "type": "registry:ui",
-      "title": "Theme Toggle",
-      "description": "Light/dark/system toggle backed by the shared Acongm theme runtime.",
-      "dependencies": ["lucide-react"],
-      "registryDependencies": [
-        "Acongm/shadcn-ui/button",
-        "Acongm/shadcn-ui/theme-runtime"
-      ],
-      "files": [
-        {
-          "path": "registry/acongm/ui/theme-toggle.tsx",
-          "type": "registry:ui",
-          "target": "@ui/theme-toggle.tsx"
-        }
-      ]
-    },
-    {
-      "name": "core-ui",
-      "type": "registry:base",
-      "title": "Acongm Core UI",
-      "description": "Acongm semantic theme, cross-subdomain theme runtime and lightweight React UI primitives.",
-      "registryDependencies": [
-        "Acongm/shadcn-ui/acongm-theme",
-        "Acongm/shadcn-ui/ui-cn",
-        "Acongm/shadcn-ui/theme-runtime",
-        "Acongm/shadcn-ui/button",
-        "Acongm/shadcn-ui/input",
-        "Acongm/shadcn-ui/textarea",
-        "Acongm/shadcn-ui/label",
-        "Acongm/shadcn-ui/card",
-        "Acongm/shadcn-ui/badge",
-        "Acongm/shadcn-ui/alert",
-        "Acongm/shadcn-ui/separator",
-        "Acongm/shadcn-ui/skeleton",
-        "Acongm/shadcn-ui/theme-toggle"
-      ]
-    }
+    {"name":"ui-cn","type":"registry:lib","title":"UI className utility","description":"shadcn-compatible clsx + tailwind-merge class composition.","dependencies":["clsx@2.1.1","tailwind-merge@3.6.0"],"files":[{"path":"registry/acongm/lib/ui-cn.ts","type":"registry:lib","target":"@lib/ui-cn.ts"}]},
+    {"name":"theme-runtime","type":"registry:lib","title":"Acongm theme runtime","description":"Acongm platform integration: cross-subdomain light/dark/system persistence via localStorage and .acongm.com cookie.","files":[{"path":"registry/acongm/lib/theme.ts","type":"registry:lib","target":"@lib/theme.ts"}]},
+    {"name":"button","type":"registry:ui","title":"Button","description":"shadcn/Base UI aligned button with typed variants and sizes.","dependencies":["@base-ui/react@1.6.0","class-variance-authority@0.7.1"],"registryDependencies":["Acongm/shadcn-ui/ui-cn"],"files":[{"path":"registry/acongm/ui/button.tsx","type":"registry:ui","target":"@ui/button.tsx"}]},
+    {"name":"input","type":"registry:ui","title":"Input","description":"shadcn/Base UI aligned input primitive with native input props.","dependencies":["@base-ui/react@1.6.0"],"registryDependencies":["Acongm/shadcn-ui/ui-cn"],"files":[{"path":"registry/acongm/ui/input.tsx","type":"registry:ui","target":"@ui/input.tsx"}]},
+    {"name":"textarea","type":"registry:ui","title":"Textarea","description":"shadcn-aligned native textarea primitive.","registryDependencies":["Acongm/shadcn-ui/ui-cn"],"files":[{"path":"registry/acongm/ui/textarea.tsx","type":"registry:ui","target":"@ui/textarea.tsx"}]},
+    {"name":"label","type":"registry:ui","title":"Label","description":"shadcn-aligned native form label primitive.","registryDependencies":["Acongm/shadcn-ui/ui-cn"],"files":[{"path":"registry/acongm/ui/label.tsx","type":"registry:ui","target":"@ui/label.tsx"}]},
+    {"name":"field","type":"registry:ui","title":"Field","description":"shadcn-aligned form composition primitives for labels, descriptions, errors and field groups.","dependencies":["class-variance-authority@0.7.1"],"registryDependencies":["Acongm/shadcn-ui/ui-cn","Acongm/shadcn-ui/label","Acongm/shadcn-ui/separator"],"files":[{"path":"registry/acongm/ui/field.tsx","type":"registry:ui","target":"@ui/field.tsx"}]},
+    {"name":"card","type":"registry:ui","title":"Card","description":"shadcn-aligned card composition with size and action support.","registryDependencies":["Acongm/shadcn-ui/ui-cn"],"files":[{"path":"registry/acongm/ui/card.tsx","type":"registry:ui","target":"@ui/card.tsx"}]},
+    {"name":"badge","type":"registry:ui","title":"Badge","description":"shadcn/Base UI aligned badge with variants and render semantics.","dependencies":["@base-ui/react@1.6.0","class-variance-authority@0.7.1"],"registryDependencies":["Acongm/shadcn-ui/ui-cn"],"files":[{"path":"registry/acongm/ui/badge.tsx","type":"registry:ui","target":"@ui/badge.tsx"}]},
+    {"name":"alert","type":"registry:ui","title":"Alert","description":"shadcn-aligned default/destructive alert composition with action support.","dependencies":["class-variance-authority@0.7.1"],"registryDependencies":["Acongm/shadcn-ui/ui-cn"],"files":[{"path":"registry/acongm/ui/alert.tsx","type":"registry:ui","target":"@ui/alert.tsx"}]},
+    {"name":"separator","type":"registry:ui","title":"Separator","description":"shadcn/Base UI aligned horizontal/vertical separator.","dependencies":["@base-ui/react@1.6.0"],"registryDependencies":["Acongm/shadcn-ui/ui-cn"],"files":[{"path":"registry/acongm/ui/separator.tsx","type":"registry:ui","target":"@ui/separator.tsx"}]},
+    {"name":"skeleton","type":"registry:ui","title":"Skeleton","description":"shadcn-aligned visual loading placeholder; accessible loading announcements remain consumer-owned.","registryDependencies":["Acongm/shadcn-ui/ui-cn"],"files":[{"path":"registry/acongm/ui/skeleton.tsx","type":"registry:ui","target":"@ui/skeleton.tsx"}]},
+    {"name":"theme-toggle","type":"registry:ui","title":"Acongm Theme Toggle Recipe","description":"Acongm platform recipe for light/dark/system switching; not part of generic core-ui.","dependencies":["lucide-react"],"registryDependencies":["Acongm/shadcn-ui/button","Acongm/shadcn-ui/theme-runtime"],"files":[{"path":"registry/acongm/ui/theme-toggle.tsx","type":"registry:ui","target":"@ui/theme-toggle.tsx"}]},
+    {"name":"core-ui","type":"registry:base","title":"Acongm Core UI","description":"Reference-aligned generic React UI primitives styled with Acongm semantic tokens.","registryDependencies":["Acongm/shadcn-ui/acongm-theme","Acongm/shadcn-ui/ui-cn","Acongm/shadcn-ui/button","Acongm/shadcn-ui/input","Acongm/shadcn-ui/textarea","Acongm/shadcn-ui/label","Acongm/shadcn-ui/field","Acongm/shadcn-ui/card","Acongm/shadcn-ui/badge","Acongm/shadcn-ui/alert","Acongm/shadcn-ui/separator","Acongm/shadcn-ui/skeleton"]},
+    {"name":"platform-theme","type":"registry:base","title":"Acongm Platform Theme","description":"Acongm-specific theme persistence and toggle recipe layered on top of core Button and semantic tokens.","registryDependencies":["Acongm/shadcn-ui/acongm-theme","Acongm/shadcn-ui/theme-runtime","Acongm/shadcn-ui/button","Acongm/shadcn-ui/theme-toggle"]}
   ]
 }

@@ -43,10 +43,23 @@ GitHub Registry 使用 `owner/repo/item` 地址，不需要额外 registry serve
 
 ## Validation
 
-每个 PR 和 `main` push 都执行：
+每个 PR 和 `main` push 都执行四层门禁：
 
-1. 本地结构约束检查：文件引用、item 唯一性、semantic token、依赖边界。
-2. 官方 `shadcn registry validate`，验证真实 CLI 可解析该 GitHub Registry。
+1. Registry structural contract：文件引用、item 唯一性、semantic token、依赖边界。
+2. UI source contract：native semantics、focus、disabled、ARIA、`data-slot` 等源码级约束。
+3. Runtime UI tests：Vitest + React Testing Library + user-event 验证真实 render / keyboard / click / theme persistence。
+4. Accessibility smoke test：axe-core 验证代表性 primitive composition，并继续执行官方 `shadcn registry validate` 验证 Registry 可被 CLI 真实解析。
+
+测试依赖只存在于本仓库的开发/CI 环境，不会进入 Portal、Chat 或 Auth 的运行时依赖。
+
+本地执行：
+
+```bash
+npm install
+npm test
+npm run test:ui
+npm run test:a11y
+```
 
 ## Design principles
 
@@ -54,3 +67,4 @@ GitHub Registry 使用 `owner/repo/item` 地址，不需要额外 registry serve
 2. Source ownership：组件安装到消费项目后由项目拥有源码。
 3. Low dependency：基础 primitives 尽量零依赖；只有明确交互需求才引入第三方依赖。
 4. Composition over wrappers：不机械包装第三方组件，只抽稳定的跨项目 UI 语义。
+5. Behavior over snapshots：优先测试用户可观察的行为、语义和可访问性，不使用脆弱的 DOM snapshot 作为主门禁。

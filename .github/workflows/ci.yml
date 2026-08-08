@@ -20,6 +20,8 @@ jobs:
           package-manager-cache: false
       - name: Validate local registry contract
         run: node scripts/validate-registry.mjs
+      - name: Validate pinned upstream references
+        run: node scripts/validate-references.mjs
       - name: Test UI source contracts
         run: node scripts/test-ui-contract.mjs
       - name: Install runtime test dependencies

@@ -7,18 +7,27 @@
   },
   "scripts": {
     "test": "vitest run",
-    "test:ui": "vitest run tests/runtime-ui.test.tsx",
-    "test:a11y": "vitest run tests/a11y.test.tsx"
+    "test:ui": "vitest run tests/runtime-ui.test.tsx tests/core-components.test.tsx",
+    "test:a11y": "vitest run tests/a11y.test.tsx",
+    "test:references": "node scripts/validate-references.mjs",
+    "types:check": "tsc --noEmit"
   },
   "devDependencies": {
+    "@base-ui/react": "1.6.0",
     "@testing-library/dom": "10.4.1",
     "@testing-library/react": "16.3.2",
     "@testing-library/user-event": "14.6.1",
+    "@types/react": "19.2.17",
+    "@types/react-dom": "19.2.3",
     "axe-core": "4.12.1",
+    "class-variance-authority": "0.7.1",
+    "clsx": "2.1.1",
     "jsdom": "30.0.1",
     "lucide-react": "1.27.0",
     "react": "19.2.8",
     "react-dom": "19.2.8",
+    "tailwind-merge": "3.6.0",
+    "typescript": "7.0.2",
     "vitest": "4.1.10"
   }
 }

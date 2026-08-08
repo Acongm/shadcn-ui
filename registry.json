@@ -7,7 +7,7 @@
       "name": "acongm-theme",
       "type": "registry:theme",
       "title": "Acongm Theme",
-      "description": "Shared semantic light/dark theme for Acongm applications.",
+      "description": "Shared semantic light/dark design tokens for Acongm applications.",
       "cssVars": {
         "light": {
           "background": "#f7f8fa",
@@ -58,7 +58,11 @@
       "name": "ui-cn",
       "type": "registry:lib",
       "title": "UI className utility",
-      "description": "Dependency-free className composition for lightweight Acongm primitives.",
+      "description": "shadcn-compatible clsx + tailwind-merge class composition.",
+      "dependencies": [
+        "clsx@2.1.1",
+        "tailwind-merge@3.6.0"
+      ],
       "files": [
         {
           "path": "registry/acongm/lib/ui-cn.ts",
@@ -71,7 +75,7 @@
       "name": "theme-runtime",
       "type": "registry:lib",
       "title": "Acongm theme runtime",
-      "description": "Cross-subdomain light/dark/system persistence via localStorage and .acongm.com cookie.",
+      "description": "Acongm platform integration: cross-subdomain light/dark/system persistence via localStorage and .acongm.com cookie.",
       "files": [
         {
           "path": "registry/acongm/lib/theme.ts",
@@ -84,8 +88,14 @@
       "name": "button",
       "type": "registry:ui",
       "title": "Button",
-      "description": "Lightweight semantic button primitive and buttonVariants helper.",
-      "registryDependencies": ["Acongm/shadcn-ui/ui-cn"],
+      "description": "shadcn/Base UI aligned button with typed variants and sizes.",
+      "dependencies": [
+        "@base-ui/react@1.6.0",
+        "class-variance-authority@0.7.1"
+      ],
+      "registryDependencies": [
+        "Acongm/shadcn-ui/ui-cn"
+      ],
       "files": [
         {
           "path": "registry/acongm/ui/button.tsx",
@@ -98,8 +108,13 @@
       "name": "input",
       "type": "registry:ui",
       "title": "Input",
-      "description": "Lightweight semantic input primitive.",
-      "registryDependencies": ["Acongm/shadcn-ui/ui-cn"],
+      "description": "shadcn/Base UI aligned input primitive with native input props.",
+      "dependencies": [
+        "@base-ui/react@1.6.0"
+      ],
+      "registryDependencies": [
+        "Acongm/shadcn-ui/ui-cn"
+      ],
       "files": [
         {
           "path": "registry/acongm/ui/input.tsx",
@@ -112,8 +127,10 @@
       "name": "textarea",
       "type": "registry:ui",
       "title": "Textarea",
-      "description": "Lightweight semantic textarea primitive.",
-      "registryDependencies": ["Acongm/shadcn-ui/ui-cn"],
+      "description": "shadcn-aligned native textarea primitive.",
+      "registryDependencies": [
+        "Acongm/shadcn-ui/ui-cn"
+      ],
       "files": [
         {
           "path": "registry/acongm/ui/textarea.tsx",
@@ -126,8 +143,10 @@
       "name": "label",
       "type": "registry:ui",
       "title": "Label",
-      "description": "Dependency-free form label primitive.",
-      "registryDependencies": ["Acongm/shadcn-ui/ui-cn"],
+      "description": "shadcn-aligned native form label primitive.",
+      "registryDependencies": [
+        "Acongm/shadcn-ui/ui-cn"
+      ],
       "files": [
         {
           "path": "registry/acongm/ui/label.tsx",
@@ -137,11 +156,34 @@
       ]
     },
     {
+      "name": "field",
+      "type": "registry:ui",
+      "title": "Field",
+      "description": "shadcn-aligned form composition primitives for labels, descriptions, errors and field groups.",
+      "dependencies": [
+        "class-variance-authority@0.7.1"
+      ],
+      "registryDependencies": [
+        "Acongm/shadcn-ui/ui-cn",
+        "Acongm/shadcn-ui/label",
+        "Acongm/shadcn-ui/separator"
+      ],
+      "files": [
+        {
+          "path": "registry/acongm/ui/field.tsx",
+          "type": "registry:ui",
+          "target": "@ui/field.tsx"
+        }
+      ]
+    },
+    {
       "name": "card",
       "type": "registry:ui",
       "title": "Card",
-      "description": "Semantic card surface primitives.",
-      "registryDependencies": ["Acongm/shadcn-ui/ui-cn"],
+      "description": "shadcn-aligned card composition with size and action support.",
+      "registryDependencies": [
+        "Acongm/shadcn-ui/ui-cn"
+      ],
       "files": [
         {
           "path": "registry/acongm/ui/card.tsx",
@@ -154,8 +196,14 @@
       "name": "badge",
       "type": "registry:ui",
       "title": "Badge",
-      "description": "Semantic status badge primitive.",
-      "registryDependencies": ["Acongm/shadcn-ui/ui-cn"],
+      "description": "shadcn/Base UI aligned badge with variants and render semantics.",
+      "dependencies": [
+        "@base-ui/react@1.6.0",
+        "class-variance-authority@0.7.1"
+      ],
+      "registryDependencies": [
+        "Acongm/shadcn-ui/ui-cn"
+      ],
       "files": [
         {
           "path": "registry/acongm/ui/badge.tsx",
@@ -168,8 +216,13 @@
       "name": "alert",
       "type": "registry:ui",
       "title": "Alert",
-      "description": "Semantic default/success/destructive status surface.",
-      "registryDependencies": ["Acongm/shadcn-ui/ui-cn"],
+      "description": "shadcn-aligned default/destructive alert composition with action support.",
+      "dependencies": [
+        "class-variance-authority@0.7.1"
+      ],
+      "registryDependencies": [
+        "Acongm/shadcn-ui/ui-cn"
+      ],
       "files": [
         {
           "path": "registry/acongm/ui/alert.tsx",
@@ -182,8 +235,13 @@
       "name": "separator",
       "type": "registry:ui",
       "title": "Separator",
-      "description": "Dependency-free visual separator.",
-      "registryDependencies": ["Acongm/shadcn-ui/ui-cn"],
+      "description": "shadcn/Base UI aligned horizontal/vertical separator.",
+      "dependencies": [
+        "@base-ui/react@1.6.0"
+      ],
+      "registryDependencies": [
+        "Acongm/shadcn-ui/ui-cn"
+      ],
       "files": [
         {
           "path": "registry/acongm/ui/separator.tsx",
@@ -196,8 +254,10 @@
       "name": "skeleton",
       "type": "registry:ui",
       "title": "Skeleton",
-      "description": "Lightweight loading skeleton.",
-      "registryDependencies": ["Acongm/shadcn-ui/ui-cn"],
+      "description": "shadcn-aligned visual loading placeholder; accessible loading announcements remain consumer-owned.",
+      "registryDependencies": [
+        "Acongm/shadcn-ui/ui-cn"
+      ],
       "files": [
         {
           "path": "registry/acongm/ui/skeleton.tsx",
@@ -209,9 +269,11 @@
     {
       "name": "theme-toggle",
       "type": "registry:ui",
-      "title": "Theme Toggle",
-      "description": "Light/dark/system toggle backed by the shared Acongm theme runtime.",
-      "dependencies": ["lucide-react"],
+      "title": "Acongm Theme Toggle Recipe",
+      "description": "Acongm platform recipe for light/dark/system switching; not part of generic core-ui.",
+      "dependencies": [
+        "lucide-react"
+      ],
       "registryDependencies": [
         "Acongm/shadcn-ui/button",
         "Acongm/shadcn-ui/theme-runtime"
@@ -228,20 +290,31 @@
       "name": "core-ui",
       "type": "registry:base",
       "title": "Acongm Core UI",
-      "description": "Acongm semantic theme, cross-subdomain theme runtime and lightweight React UI primitives.",
+      "description": "Reference-aligned generic React UI primitives styled with Acongm semantic tokens.",
       "registryDependencies": [
         "Acongm/shadcn-ui/acongm-theme",
         "Acongm/shadcn-ui/ui-cn",
-        "Acongm/shadcn-ui/theme-runtime",
         "Acongm/shadcn-ui/button",
         "Acongm/shadcn-ui/input",
         "Acongm/shadcn-ui/textarea",
         "Acongm/shadcn-ui/label",
+        "Acongm/shadcn-ui/field",
         "Acongm/shadcn-ui/card",
         "Acongm/shadcn-ui/badge",
         "Acongm/shadcn-ui/alert",
         "Acongm/shadcn-ui/separator",
-        "Acongm/shadcn-ui/skeleton",
+        "Acongm/shadcn-ui/skeleton"
+      ]
+    },
+    {
+      "name": "platform-theme",
+      "type": "registry:base",
+      "title": "Acongm Platform Theme",
+      "description": "Acongm-specific theme persistence and toggle recipe layered on top of core Button and semantic tokens.",
+      "registryDependencies": [
+        "Acongm/shadcn-ui/acongm-theme",
+        "Acongm/shadcn-ui/theme-runtime",
+        "Acongm/shadcn-ui/button",
         "Acongm/shadcn-ui/theme-toggle"
       ]
     }

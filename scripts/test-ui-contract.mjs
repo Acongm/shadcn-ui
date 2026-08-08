@@ -49,14 +49,41 @@ expectSource(alertSource, "alert.tsx", /function AlertDescription[\s\S]*?<div/, 
 assertions += 1;
 if (/success:/.test(alertSource)) errors.push("alert.tsx: success must not be a core variant unless a dedicated semantic success token contract exists.");
 
-expectUi("separator.tsx", [[/@base-ui\/react\/separator/, "Separator must delegate orientation semantics to Base UI."],[/orientation = "horizontal"/, "Separator must preserve the horizontal default."],[/data-horizontal:h-px/, "Separator must style Base UI horizontal state."],[/data-vertical:w-px/, "Separator must style Base UI vertical state."]]);
+expectUi("separator.tsx", [
+  [/@base-ui\/react\/separator/, "Separator must delegate orientation semantics to Base UI."],
+  [/orientation = "horizontal"/, "Separator must preserve the horizontal default."],
+  [/data-\[orientation=horizontal\]:h-px/, "Separator must style the public data-orientation horizontal state without relying on global custom variants."],
+  [/data-\[orientation=vertical\]:w-px/, "Separator must style the public data-orientation vertical state without relying on global custom variants."],
+]);
 expectUi("skeleton.tsx", [[/data-slot="skeleton"/, "Skeleton must expose a stable slot."],[/animate-pulse/, "Skeleton must preserve loading placeholder animation."]]);
 expectUi("field.tsx", [[/<fieldset\b/, "FieldSet must use native fieldset semantics."],[/<legend\b/, "FieldLegend must use native legend semantics."],[/role="group"/, "Field must expose group semantics."],[/data-slot="field-description"/, "Field must provide description composition."],[/role="alert"/, "FieldError must announce validation errors."],[/new Map\(errors\.map/, "FieldError must deduplicate repeated messages like the shadcn baseline."]]);
 expectUi("theme-toggle.tsx", [[/<Button\b/, "ThemeToggle recipe must compose core Button rather than define another interactive primitive."],[/aria-label=/, "ThemeToggle must retain an accessible name when icon-only."]]);
+
+const corePortableFiles = [
+  "button.tsx",
+  "input.tsx",
+  "textarea.tsx",
+  "label.tsx",
+  "field.tsx",
+  "card.tsx",
+  "badge.tsx",
+  "alert.tsx",
+  "separator.tsx",
+  "skeleton.tsx",
+];
+for (const file of corePortableFiles) {
+  const source = readUi(file);
+  for (const forbidden of ["data-horizontal:", "data-vertical:", "group-has-data-horizontal", "group-has-data-vertical"]) {
+    assertions += 1;
+    if (source.includes(forbidden)) {
+      errors.push(`${file}: core-ui must not rely on unshipped shadcn global custom variant ${forbidden}`);
+    }
+  }
+}
 
 if (errors.length > 0) {
   console.error(`UI source contract checks failed (${errors.length}/${assertions}):`);
   console.error(errors.map((error) => `- ${error}`).join("\n"));
   process.exit(1);
 }
-console.log(`UI source contracts OK: ${assertions} reference-aligned assertions across API, semantics and composition.`);
+console.log(`UI source contracts OK: ${assertions} reference-aligned and portability assertions across API, semantics and composition.`);

@@ -4,9 +4,6 @@ import { defineConfig } from 'vitest/config';
 const file = (relativePath) => fileURLToPath(new URL(relativePath, import.meta.url));
 
 export default defineConfig({
-  esbuild: {
-    jsx: 'automatic',
-  },
   resolve: {
     alias: {
       '@/lib/ui-cn': file('./registry/acongm/lib/ui-cn.ts'),

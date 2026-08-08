@@ -1,0 +1,71 @@
+{
+  "schemaVersion": 1,
+  "policy": {
+    "defaultBundle": "core-ui",
+    "rule": "A non-foundational component may enter the default core-ui bundle only when it has reviewed usage in at least two independent applications. Components can remain individually installable or belong to an opt-in bundle without meeting the default-bundle threshold."
+  },
+  "items": {
+    "acongm-theme": {
+      "foundation": true,
+      "consumers": ["portal", "chat", "auth"],
+      "reason": "Shared semantic design-token contract."
+    },
+    "ui-cn": {
+      "foundation": true,
+      "consumers": ["portal", "chat", "auth"],
+      "reason": "Required class composition primitive for Registry components."
+    },
+    "button": {
+      "consumers": ["portal", "chat", "auth"],
+      "reason": "Used directly across all applications."
+    },
+    "card": {
+      "consumers": ["portal", "auth"],
+      "reason": "Shared surface composition across documentation and authentication applications."
+    },
+    "badge": {
+      "consumers": ["portal", "chat"],
+      "reason": "Shared compact metadata/status primitive."
+    },
+    "input": {
+      "consumers": ["auth"],
+      "bundle": "form-ui"
+    },
+    "textarea": {
+      "consumers": [],
+      "bundle": "form-ui",
+      "reason": "Reference-aligned optional form primitive; not installed by default."
+    },
+    "label": {
+      "consumers": ["auth"],
+      "bundle": "form-ui"
+    },
+    "field": {
+      "consumers": ["auth"],
+      "bundle": "form-ui"
+    },
+    "alert": {
+      "consumers": ["auth"],
+      "bundle": "form-ui"
+    },
+    "separator": {
+      "consumers": ["auth"],
+      "bundle": "form-ui"
+    },
+    "skeleton": {
+      "consumers": ["chat"],
+      "bundle": null,
+      "reason": "Useful generic primitive but currently installed on demand only."
+    },
+    "theme-runtime": {
+      "consumers": ["portal", "chat", "auth"],
+      "bundle": "platform-theme",
+      "platformSpecific": true
+    },
+    "theme-toggle": {
+      "consumers": ["chat", "auth"],
+      "bundle": "platform-theme",
+      "platformSpecific": true
+    }
+  }
+}

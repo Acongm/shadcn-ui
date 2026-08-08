@@ -12,10 +12,9 @@
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "resolveJsonModule": true,
-    "baseUrl": ".",
     "paths": {
-      "@/lib/*": ["registry/acongm/lib/*"],
-      "@/components/ui/*": ["registry/acongm/ui/*"]
+      "@/lib/*": ["./registry/acongm/lib/*"],
+      "@/components/ui/*": ["./registry/acongm/ui/*"]
     }
   },
   "include": ["registry/**/*.ts", "registry/**/*.tsx", "tests/**/*.ts", "tests/**/*.tsx"]

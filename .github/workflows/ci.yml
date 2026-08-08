@@ -19,5 +19,7 @@ jobs:
           node-version: 22
       - name: Validate local registry contract
         run: node scripts/validate-registry.mjs
+      - name: Test UI and accessibility contracts
+        run: node scripts/test-ui-contract.mjs
       - name: Validate with official shadcn CLI
         run: npx --yes shadcn@latest registry validate "Acongm/shadcn-ui#${GITHUB_HEAD_REF:-$GITHUB_REF_NAME}"

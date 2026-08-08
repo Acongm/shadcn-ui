@@ -13,16 +13,123 @@
     "purpose": "accessibility and interaction model cross-check for composite/interactive components"
   },
   "entries": {
-    "ui-cn": {"upstreamPath":"apps/v4/registry/bases/base/lib/utils.ts","upstreamBlobSha":"bd0c391ddd1088e9067844c48835bf4abcd61783","contract":["conditional classes","Tailwind conflict resolution"]},
-    "button": {"upstreamPath":"apps/v4/registry/bases/base/ui/button.tsx","upstreamBlobSha":"fa343173a022bb2dd18247daa2c34e6e7b37c38c","primitive":"@base-ui/react/button","contract":["variants","sizes","keyboard activation","disabled behavior","render semantics","icon spacing"]},
-    "input": {"upstreamPath":"apps/v4/registry/bases/base/ui/input.tsx","upstreamBlobSha":"d45a0b058ba9f59a11334ca6fcbf02a81506ad66","primitive":"@base-ui/react/input","contract":["native input props","disabled","aria-invalid","file input","className override"]},
-    "textarea": {"upstreamPath":"apps/v4/registry/bases/base/ui/textarea.tsx","upstreamBlobSha":"e703bf57c63904f2f9c5f0354f8c1277150f03af","primitive":"native textarea","contract":["native textarea props","disabled","aria-invalid","className override"]},
-    "label": {"upstreamPath":"apps/v4/registry/bases/base/ui/label.tsx","upstreamBlobSha":"a439e097d65313152827715dd37c2f2c8d7b3900","primitive":"native label","contract":["native label association","disabled peer styling"]},
-    "card": {"upstreamPath":"apps/v4/registry/bases/base/ui/card.tsx","upstreamBlobSha":"bed029b599af855dd76e1ec9f83d5d7d01be700a","primitive":"native div composition","contract":["size","CardAction","neutral content semantics","section composition"]},
-    "badge": {"upstreamPath":"apps/v4/registry/bases/base/ui/badge.tsx","upstreamBlobSha":"c67b787699e8d96dec72fbdff3404257a8ab01e0","primitive":"@base-ui/react/use-render","contract":["variants","render semantics","focus-visible","aria-invalid"]},
-    "alert": {"upstreamPath":"apps/v4/registry/bases/base/ui/alert.tsx","upstreamBlobSha":"f1b66301005fd52dc5b428bd5549ebcee0cb4aff","primitive":"native div composition","contract":["role=alert","default/destructive variants","AlertAction","neutral title/description elements"]},
-    "separator": {"upstreamPath":"apps/v4/registry/bases/base/ui/separator.tsx","upstreamBlobSha":"cf212eb4ded8ed527c9491737db44c4d2dc7b2e5","primitive":"@base-ui/react/separator","contract":["orientation","role/aria semantics","horizontal/vertical sizing"]},
-    "skeleton": {"upstreamPath":"apps/v4/registry/bases/base/ui/skeleton.tsx","upstreamBlobSha":"0f76bfb60fc4d7d7f7cd950ae4c1d9d523984208","primitive":"native div","contract":["visual placeholder only","consumer controls accessible loading announcement"]},
-    "field": {"upstreamPath":"apps/v4/registry/bases/base/ui/field.tsx","upstreamBlobSha":"8ab9ef35e41a06c7fc1c29df7417155d60024562","primitive":"native form composition","contract":["FieldSet/Legend","orientation","FieldLabel","FieldDescription","FieldError","deduplicated errors"]}
+    "ui-cn": {
+      "upstreamPath": "apps/v4/registry/bases/base/lib/utils.ts",
+      "upstreamBlobSha": "bd0c391ddd1088e9067844c48835bf4abcd61783",
+      "contract": [
+        "conditional classes",
+        "Tailwind conflict resolution"
+      ]
+    },
+    "button": {
+      "upstreamPath": "apps/v4/registry/bases/base/ui/button.tsx",
+      "upstreamBlobSha": "fa343173a022bb2dd18247daa2c34e6e7b37c38c",
+      "primitive": "@base-ui/react/button",
+      "contract": [
+        "variants",
+        "sizes",
+        "keyboard activation",
+        "disabled behavior",
+        "render semantics",
+        "icon spacing"
+      ]
+    },
+    "input": {
+      "upstreamPath": "apps/v4/registry/bases/base/ui/input.tsx",
+      "upstreamBlobSha": "d45a0b058ba9f59a11334ca6fcbf02a81506ad66",
+      "primitive": "@base-ui/react/input",
+      "contract": [
+        "native input props",
+        "disabled",
+        "aria-invalid",
+        "file input",
+        "className override"
+      ]
+    },
+    "textarea": {
+      "upstreamPath": "apps/v4/registry/bases/base/ui/textarea.tsx",
+      "upstreamBlobSha": "e703bf57c63904f2f9c5f0354f8c1277150f03af",
+      "primitive": "native textarea",
+      "contract": [
+        "native textarea props",
+        "disabled",
+        "aria-invalid",
+        "className override"
+      ]
+    },
+    "label": {
+      "upstreamPath": "apps/v4/registry/bases/base/ui/label.tsx",
+      "upstreamBlobSha": "a439e097d65313152827715dd37c2f2c8d7b3900",
+      "primitive": "native label",
+      "contract": [
+        "native label association",
+        "disabled peer styling"
+      ]
+    },
+    "card": {
+      "upstreamPath": "apps/v4/registry/bases/base/ui/card.tsx",
+      "upstreamBlobSha": "bed029b599af855dd76e1ec9f83d5d7d01be700a",
+      "primitive": "native div composition",
+      "contract": [
+        "size",
+        "CardAction",
+        "neutral content semantics",
+        "section composition"
+      ]
+    },
+    "badge": {
+      "upstreamPath": "apps/v4/registry/bases/base/ui/badge.tsx",
+      "upstreamBlobSha": "c67b787699e8d96dec72fbdff3404257a8ab01e0",
+      "primitive": "@base-ui/react/use-render",
+      "contract": [
+        "variants",
+        "render semantics",
+        "focus-visible",
+        "aria-invalid"
+      ]
+    },
+    "alert": {
+      "upstreamPath": "apps/v4/registry/bases/base/ui/alert.tsx",
+      "upstreamBlobSha": "f1b66301005fd52dc5b428bd5549ebcee0cb4aff",
+      "primitive": "native div composition",
+      "contract": [
+        "role=alert",
+        "default/destructive variants",
+        "AlertAction",
+        "neutral title/description elements"
+      ]
+    },
+    "separator": {
+      "upstreamPath": "apps/v4/registry/bases/base/ui/separator.tsx",
+      "upstreamBlobSha": "cf212eb4ded8ed527c9491737db44c4d2dc7b2e5",
+      "primitive": "@base-ui/react/separator",
+      "contract": [
+        "orientation",
+        "role/aria semantics",
+        "horizontal/vertical sizing"
+      ]
+    },
+    "skeleton": {
+      "upstreamPath": "apps/v4/registry/bases/base/ui/skeleton.tsx",
+      "upstreamBlobSha": "0f76bfb60fc4d7d7f7cd950ae4c1d9d523984208",
+      "primitive": "native div",
+      "contract": [
+        "visual placeholder only",
+        "consumer controls accessible loading announcement"
+      ]
+    },
+    "field": {
+      "upstreamPath": "apps/v4/registry/bases/base/ui/field.tsx",
+      "upstreamBlobSha": "8ab9ef35e41a06c7fc1c29df7417155d60024562",
+      "primitive": "native form composition",
+      "contract": [
+        "FieldSet/Legend",
+        "orientation",
+        "FieldLabel",
+        "FieldDescription",
+        "FieldError",
+        "deduplicated errors"
+      ]
+    }
   }
 }

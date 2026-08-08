@@ -1,0 +1,28 @@
+import { fileURLToPath } from 'node:url';
+import { defineConfig } from 'vitest/config';
+
+const file = (relativePath) => fileURLToPath(new URL(relativePath, import.meta.url));
+
+export default defineConfig({
+  esbuild: {
+    jsx: 'automatic',
+  },
+  resolve: {
+    alias: {
+      '@/lib/ui-cn': file('./registry/acongm/lib/ui-cn.ts'),
+      '@/lib/theme': file('./registry/acongm/lib/theme.ts'),
+      '@/components/ui/button': file('./registry/acongm/ui/button.tsx'),
+    },
+  },
+  test: {
+    environment: 'jsdom',
+    environmentOptions: {
+      jsdom: {
+        url: 'https://portal.acongm.com/',
+      },
+    },
+    setupFiles: ['./tests/setup.ts'],
+    clearMocks: true,
+    restoreMocks: true,
+  },
+});

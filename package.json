@@ -1,0 +1,24 @@
+{
+  "name": "@acongm/shadcn-ui-registry",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "test": "vitest run",
+    "test:ui": "vitest run tests/runtime-ui.test.tsx",
+    "test:a11y": "vitest run tests/a11y.test.tsx"
+  },
+  "devDependencies": {
+    "@testing-library/dom": "10.4.1",
+    "@testing-library/react": "16.3.2",
+    "@testing-library/user-event": "14.6.1",
+    "axe-core": "4.12.1",
+    "jsdom": "30.0.1",
+    "lucide-react": "1.27.0",
+    "react": "19.2.8",
+    "react-dom": "19.2.8",
+    "vitest": "4.1.10"
+  }
+}

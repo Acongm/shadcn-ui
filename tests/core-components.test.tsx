@@ -103,7 +103,7 @@ describe('core component contracts', () => {
     render(<Separator orientation="vertical" />);
     const separator = screen.getByRole('separator');
     expect(separator.getAttribute('aria-orientation')).toBe('vertical');
-    expect(separator.hasAttribute('data-vertical')).toBe(true);
+    expect(separator.getAttribute('data-orientation')).toBe('vertical');
   });
 
   it('keeps Skeleton accessibility policy consumer-controlled', () => {

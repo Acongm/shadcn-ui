@@ -59,7 +59,7 @@ export function FieldTitle({ className, ...props }: React.ComponentProps<"div">)
 }
 
 export function FieldDescription({ className, ...props }: React.ComponentProps<"p">) {
-  return <p data-slot="field-description" className={cn("text-sm font-normal leading-normal text-muted-foreground group-has-data-horizontal/field:text-balance [&>a]:underline [&>a]:underline-offset-4 [&>a:hover]:text-primary", className)} {...props} />;
+  return <p data-slot="field-description" className={cn("text-sm font-normal leading-normal text-muted-foreground [&>a]:underline [&>a]:underline-offset-4 [&>a:hover]:text-primary", className)} {...props} />;
 }
 
 export function FieldSeparator({ children, className, ...props }: React.ComponentProps<"div">) {

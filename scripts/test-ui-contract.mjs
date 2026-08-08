@@ -69,12 +69,13 @@ expectAll('theme-toggle.tsx', [
   [/aria-label\s*=\s*\{`\$\{meta\.label\}，\$\{meta\.nextLabel\}`\}/, 'ThemeToggle must remain named when rendered icon-only.'],
   [/aria-hidden/, 'ThemeToggle icon must be hidden from assistive technology.'],
   [/title\s*=\s*\{meta\.nextLabel\}/, 'ThemeToggle must expose the next action as a title.'],
+  [/<Button\b/, 'ThemeToggle must compose the governed Button primitive instead of creating a second interactive primitive.'],
 ]);
 
-// Every published UI primitive should have a stable slot marker for styling,
-// testing and source-level diagnostics.
-for (const file of fs.readdirSync(uiRoot).filter((name) => name.endsWith('.tsx'))) {
-  expectMatch(file, /data-slot=/, 'Published UI primitive must expose at least one data-slot marker.');
+// Atomic primitives need stable slot markers for styling/testing. Composed
+// controls are allowed to inherit the slot contract from governed primitives.
+for (const file of fs.readdirSync(uiRoot).filter((name) => name.endsWith('.tsx') && name !== 'theme-toggle.tsx')) {
+  expectMatch(file, /data-slot=/, 'Atomic UI primitive must expose at least one data-slot marker.');
 }
 
 if (errors.length > 0) {

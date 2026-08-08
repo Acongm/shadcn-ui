@@ -1,0 +1,7 @@
+{
+  "version": "0.1.0",
+  "ref": "da38680260103510fd6c57c741a5046024558282",
+  "releasedAt": "2026-08-08",
+  "channel": "stable",
+  "notes": "First reviewed Acongm UI baseline with registry validation, source contracts, Vitest runtime behavior tests and axe accessibility smoke tests."
+}

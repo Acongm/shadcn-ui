@@ -1,4 +1,4 @@
-import { render, screen, waitFor } from '@testing-library/react';
+import { act, render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { describe, expect, it, vi } from 'vitest';
 
@@ -97,5 +97,50 @@ describe('Acongm UI runtime contracts', () => {
       expect(document.cookie).toContain('acongm-theme=dark');
       expect(toggle.getAttribute('aria-label')).toContain('深色模式');
     });
+  });
+
+  it('reacts to operating-system theme changes while system mode is active', async () => {
+    let systemDark = false;
+    let changeListener: (() => void) | undefined;
+    const mediaQuery = {
+      get matches() {
+        return systemDark;
+      },
+      media: '(prefers-color-scheme: dark)',
+      onchange: null,
+      addListener: vi.fn(),
+      removeListener: vi.fn(),
+      addEventListener: vi.fn((_type: string, listener: () => void) => {
+        changeListener = listener;
+      }),
+      removeEventListener: vi.fn(),
+      dispatchEvent: vi.fn(() => false),
+    };
+
+    Object.defineProperty(window, 'matchMedia', {
+      configurable: true,
+      writable: true,
+      value: vi.fn(() => mediaQuery),
+    });
+
+    render(<ThemeToggle showLabel={false} />);
+
+    await waitFor(() => {
+      expect(document.documentElement.classList.contains('light')).toBe(true);
+      expect(changeListener).toBeTypeOf('function');
+    });
+
+    act(() => {
+      systemDark = true;
+      changeListener?.();
+    });
+
+    await waitFor(() => {
+      expect(document.documentElement.classList.contains('dark')).toBe(true);
+      expect(document.documentElement.dataset.theme).toBe('dark');
+      expect(document.documentElement.style.colorScheme).toBe('dark');
+    });
+
+    expect(window.localStorage.getItem('acongm-theme')).toBeNull();
   });
 });

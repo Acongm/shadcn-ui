@@ -17,5 +17,7 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 22
-      - name: Validate registry
+      - name: Validate local registry contract
         run: node scripts/validate-registry.mjs
+      - name: Validate with official shadcn CLI
+        run: npx --yes shadcn@latest registry validate "Acongm/shadcn-ui#${GITHUB_HEAD_REF:-$GITHUB_REF_NAME}"
